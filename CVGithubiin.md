@@ -1,11 +1,14 @@
 # 1. Luo GitHub-repositorio nimeltä cv
+
 * Mene GitHubiin.
 * Klikkaa New repository.
-* Nimeä se esim. cv, portfolio tai resume.
+* Anna sille nimi CF
 * Valitse Public.
 * Lisää heti README.md-tiedosto (täytetään seuraavassa vaiheessa).
 
 # 2. Kirjoita CV README.md-tiedostoon Markdownilla
+
+* vinkkejä Markdown'sta https://www.markdownguide.org/basic-syntax/
 * Nimi Sukunimi
 * Ohjelmistokehityksen opiskelija  
 * Oulu, Suomi  
