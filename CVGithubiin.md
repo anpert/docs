@@ -8,22 +8,32 @@
 
 # 2. Kirjoita CV README.md-tiedostoon Markdownilla
 
-* vinkkejä Markdown'sta https://www.markdownguide.org/basic-syntax/
-* Nimi Sukunimi
-* Ohjelmistokehityksen opiskelija  
-* Oulu, Suomi  
-nimi.sukunimi@email.com  
-🌐 [www.portfoliosivusi.fi](https://www.portfoliosivusi.fi)
+* Ohjeita Markdown'sta https://www.markdownguide.org/basic-syntax/
+* Lisää dokumenttiin:
+ * Nimi Sukunimi
+ * Ohjelmistokehityksen opiskelija  
+ * Oulu, Suomi  
+ * nimi.sukunimi@email.com
 
+# 3. Yleisiä vinkkejä
 
+Nämä vinkit liittyvät työhakemukseen, mutta niitä voi hyödyntää myös CV:n teossa
+* tee näin:
+  * käytä selkeää jäsentelyä
+  * älä tee liian pitkää. A4 on maksimi
+  * kerro käytännön esimerkkejä, miksi sopisit tähän tehtävään. Tai tähän yritykseen
+  * kuvaile osaamisesi ja kokemuksesi
+* mutta
+  * vältä sekavuutta
+  * liitä tarpeeksi sisältöä (vaikka A4 on maksimi, pitää siellä jotain olla)
+  * vältä epämäärisyyttä, ei konkreettisia lauseita
 
 ## Profiili
 
 (tehokas alku) Olen intohimoinen ohjelmistokehityksen opiskelija, joka rakentaa jatkuvasti osaamistaan käytännön projekteilla. Hallitsen modernit web-teknologiat ja haluan kehittyä full-stack-kehittäjäksi.
 
 
-
-## 🛠️ Taitoalueet (käytä vaikka sitä tiatoluokittelua)
+## 🛠️ Taitoalueet (käytä vaikka sitä taitoluokittelua)
 
 - HTML, CSS, JavaScript
  - React, Node.js
@@ -40,7 +50,6 @@ Reactilla ja Node.js:llä toteutettu tehtävienhallintasovellus, jossa autentiko
 
 ### 📌 [weather-cli](https://github.com/kayttaja/weather-cli)
 Python CLI-sovellus, joka hakee säätiedot OpenWeatherMapin rajapinnasta.
-
 
 ## Koulutus
 
