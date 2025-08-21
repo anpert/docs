@@ -1,4 +1,4 @@
-# Minimaalinen CV GitHubiin #
+# CV:n alku GitHubiin #
 
 ## 1. Luo GitHub-repositorio nimeltä cv tai portfolio ##
 
