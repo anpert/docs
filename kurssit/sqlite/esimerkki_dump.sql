@@ -1,0 +1,4 @@
+BEGIN TRANSACTION;
+CREATE TABLE opiskelijat (id INTEGER PRIMARY KEY, nimi TEXT, ika INTEGER);
+INSERT INTO "opiskelijat" VALUES(1,'Aku Ankka',38);
+COMMIT;

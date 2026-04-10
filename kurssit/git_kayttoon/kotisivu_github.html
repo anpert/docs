@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>kotisivu_github.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="henkil%C3%B6n-n%C3%A4kyminen-githubcomssa">Henkilön näkyminen GitHub.com:ssa</h1>
+<h2 id="%F0%9F%8C%9F-miksi-tuoda-itsens%C3%A4-esille-githubissa">🌟 Miksi tuoda itsensä esille GitHubissa?</h2>
+<h3 id="1%EF%B8%8F%E2%83%A3-ammatillinen-n%C3%A4kyvyys">1️⃣ Ammatillinen näkyvyys</h3>
+<ul>
+<li>GitHub toimii digitaalisena CV:nä: projektit, koodinäytteet, kontribuutiot.</li>
+<li>Rekrytoijat ja yhteistyökumppanit voivat helposti nähdä osaamisesi ja tyylisi.</li>
+<li>Profiilin esittely antaa ensivaikutelman osaamisesta ja kiinnostuksen kohteista.</li>
+</ul>
+<h3 id="2%EF%B8%8F%E2%83%A3-luotettavuus-ja-l%C3%A4pin%C3%A4kyvyys">2️⃣ Luotettavuus ja läpinäkyvyys</h3>
+<ul>
+<li>Näkyvä profiili ja selkeä esittely luovat luottamusta työnantajiin, opiskelijoihin tai yhteisöön.</li>
+<li>Käyttäjä näkee, että koodit ovat aitoja ja ylläpidettyjä projekteja.</li>
+</ul>
+<h3 id="3%EF%B8%8F%E2%83%A3-verkostoituminen">3️⃣ Verkostoituminen</h3>
+<ul>
+<li>Profiili voi sisältää linkkejä LinkedIniin, Twitteriin, portfolioon tai blogiin.</li>
+<li>Mahdollistaa kontaktien saamisen alan ihmisiin ja yhteisöihin.</li>
+</ul>
+<h3 id="4%EF%B8%8F%E2%83%A3-oppimisen-ja-kehityksen-dokumentointi">4️⃣ Oppimisen ja kehityksen dokumentointi</h3>
+<ul>
+<li>Kaikki projektit, testit ja oppimiskokemukset näkyvät yhdessä paikassa.</li>
+<li>Esittelee jatkuvaa kehitystä ja osaamisen kasvua.</li>
+</ul>
+<h3 id="5%EF%B8%8F%E2%83%A3-henkil%C3%B6br%C3%A4ndin-rakentaminen">5️⃣ Henkilöbrändin rakentaminen</h3>
+<ul>
+<li>Profiili ja sivu toimivat henkilöbrändinä: tyyli, kielet, esitystapa, visuaalisuus.</li>
+<li>Säännöllisesti päivitetty profiili ja julkaistut projektit kertovat aktiivisuudesta ja ammattimaisuudesta.</li>
+</ul>
+<h3 id="6%EF%B8%8F%E2%83%A3-helpottaa-yhteisty%C3%B6t%C3%A4">6️⃣ Helpottaa yhteistyötä</h3>
+<ul>
+<li>Kun esittelet itsesi selkeästi, muut kehittäjät voivat helposti löytää ja käyttää projektejasi, tehdä PR:itä ja antaa palautetta.</li>
+</ul>
+<h3 id="mit%C3%A4-vaihtoehtoja-on">Mitä vaihtoehtoja on?</h3>
+<ul>
+<li>README.md → helppo ja näkyvä tapa esitellä itsesi GitHubin sisällä.</li>
+<li>GitHub Pages (index.html) → täydellinen, monipuolinen ja brändätty esittely verkossa.</li>
+<li>Molemmat yhdessä → maksimoitu näkyvyys ja ammatillinen vaikutelma.</li>
+<li>Tulos: lisää mahdollisuuksia rekrytoinnissa, yhteistyössä ja oman osaamisen esittelyssä.</li>
+</ul>
+<hr>
+<h2 id="github-kotisivujen-valintaopas">GitHub-kotisivujen valintaopas</h2>
+<p>Tässä ohjeessa käydään läpi, miten valita GitHubissa kotisivun tyyppi käyttäjälle ja miten Markdown- ja HTML-versiot eroavat.</p>
+<hr>
+<h3 id="1-readmemd--vs-indexhtml-sivut">1. README.md- vs index.html-sivut</h3>
+<h4 id="readmemd">README.md</h4>
+<p><strong>Mikä se on:</strong><br>
+Markdown-tiedosto, joka näkyy automaattisesti GitHubin repoissa tai profiilissa.</p>
+<p><strong>Edut:</strong></p>
+<ul>
+<li>Helppo luoda ja ylläpitää, ei vaadi HTML-osaamista.</li>
+<li>Tukee otsikoita, kuvia, linkkejä, listoja, koodilohkoja.</li>
+<li>Näkyy suoraan GitHubin profiilissa tai repossa.</li>
+</ul>
+<p><strong>Haitat:</strong></p>
+<ul>
+<li>Ulkoasu on rajoitettu GitHubin renderöintiin.</li>
+<li>Monimutkaiset layoutit, interaktiot ja CSS eivät ole mahdollisia.</li>
+</ul>
+<p><strong>Käyttötapa:</strong></p>
+<ul>
+<li>Profiilin tai organisaation esittelysivu</li>
+<li>Projektin dokumentaatio</li>
+<li>Monikielinen README</li>
+</ul>
+<hr>
+<h4 id="indexhtml-github-pages">index.html (GitHub Pages)</h4>
+<p><strong>Mikä se on:</strong><br>
+HTML-tiedosto, jota GitHub Pages käyttää kotisivuna.</p>
+<p><strong>Edut:</strong></p>
+<ul>
+<li>Täysi kontrolli ulkoasusta: HTML, CSS, JS → voi tehdä monimutkaisia, tyylikkäitä sivuja.</li>
+<li>Mahdollistaa interaktiiviset elementit (formit, animaatiot, visualisoinnit).</li>
+</ul>
+<p><strong>Haitat:</strong></p>
+<ul>
+<li>Vaatii HTML/CSS/JS-osaamista.</li>
+<li>Ei näy automaattisesti GitHub-profiilissa.</li>
+</ul>
+<p><strong>Käyttötapa:</strong></p>
+<ul>
+<li>Virallinen verkkosivu organisaatiolle tai henkilölle</li>
+<li>Portfolio, interaktiiviset esittelyt, blogit</li>
+</ul>
+<hr>
+<h4 id="suositus-k%C3%A4yt%C3%B6n-mukaan">Suositus käytön mukaan</h4>
+<table>
+<thead>
+<tr>
+<th>Tavoite</th>
+<th>Parempi valinta</th>
+<th>Perustelu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Profiilin sisäinen esittely (GitHub-profiili)</td>
+<td><code>README.md</code></td>
+<td>Näkyy automaattisesti profiilissa, helppo ylläpitää</td>
+</tr>
+<tr>
+<td>Julkinen kotisivu / brändisivu / portfolio</td>
+<td><code>index.html</code> (GitHub Pages)</td>
+<td>Täysi kontrolli ulkoasusta ja interaktiosta</td>
+</tr>
+<tr>
+<td>Monikielinen esittely</td>
+<td><code>README.md</code> tai Markdown + linkit</td>
+<td>Helppo ylläpitää, kaikki kielet samassa tiedostossa tai erillisissä tiedostoissa</td>
+</tr>
+<tr>
+<td>Dokumentaatio ja projektien esittely</td>
+<td><code>README.md</code></td>
+<td>Markdown renderöityy GitHubissa selkeästi</td>
+</tr>
+</tbody>
+</table>
+<p>💡 Käytännössä usein yhdistetään molemmat:</p>
+<ul>
+<li>Profiilin <code>README.md</code> → lyhyt esittely ja linkit GitHub Pages -sivuun</li>
+<li><code>index.html</code> → täysi, tyylikäs kotisivu</li>
+</ul>
+<hr>
+<h1 id="k%C3%A4ytt%C3%A4j%C3%A4n-kotisivu-githubissa">Käyttäjän kotisivu GitHubissa</h1>
+<p>Käyttäjän profiili näkyy osoitteessa: https://github.com/kayttajanimi</p>
+<p>Jos haluat luoda esittelysivun, joka näkyy heti profiilissa, käytetään erillistä <strong>repositorya</strong> nimellä:</p>
+<pre class="hljs"><code><div>kayttajanimi/kayttajanimi
+</div></code></pre>
+<p>eli repositoryn nimi on täsmälleen sama kuin käyttäjänimi.</p>
+<p>Tämä repository toimii GitHub Pages -kotisivuna, ja siihen voi laittaa esimerkiksi README.md tai HTML-sivun.</p>
+<p>🔹 Käytännön toteutus</p>
+<ol>
+<li>
+<p>Luo repository:</p>
+<pre class="hljs"><code><div>kayttajanimi/kayttajanimi
+</div></code></pre>
+</li>
+<li>
+<p>Luo siihen tiedosto:</p>
+<pre class="hljs"><code><div>README.md
+</div></code></pre>
+</li>
+</ol>
+<p>Tämä näkyy automaattisesti GitHubin profiilissa käyttäjälle ja vierailijoille.</p>
+<h1 id="github-pages">GitHub Pages</h1>
+<p>Jos haluat julkaista täyden GitHub Pages -sivun, voit tehdä tiedostot index.html ja ottaa Pagesin käyttöön:</p>
+<pre><code>Repo → Settings → Pages → Source → main branch → / (root)
+</code></pre>
+<p>GitHub luo URL:n: https://kayttajanimi.github.io/</p>
+<p>🌍 Kieliversiot käyttäjän kotisivulla</p>
+<ul>
+<li>Tee yksi README ja laita sille samalle sivulle kieliversiot.</li>
+<li>tai tee erilliset tiedostot, esim. README.md + README.en.md</li>
+</ul>
+<h2 id="muut-sivut">Muut sivut</h2>
+<p>Jos haluat esitellä omia projektejasi, kannattaa tehdä tehdä hierarkinen puumalli. Esim:</p>
+<pre class="hljs"><code><div>kayttajanimi/kayttajanimi/
+│
+├─ README.md              <span class="hljs-comment"># Profiilisivun pääsivu</span>
+├─ projektit/             <span class="hljs-comment"># Kansiot omille projekteille</span>
+│   ├─ projekti1.md
+│   ├─ projekti2.md
+│   └─ projekti3.md
+├─ blogi/                 <span class="hljs-comment"># Mahdolliset blogikirjoitukset</span>
+│   ├─ artikkeli1.md
+│   └─ artikkeli2.md
+└─ kuvat/                 <span class="hljs-comment"># Käytettävät kuvat</span>
+    ├─ projekti1.png
+    └─ logo.png
+</div></code></pre>
+<h3 id="readmemd">README.md</h3>
+<p>*Toimii kotisivuna, jossa tiivis esittely ja linkit muihin Markdown-sivuihin.</p>
+<p>Esimerkiksi:</p>
+<h1 id="tervetuloa-github-profiiliini">Tervetuloa GitHub-profiiliini!</h1>
+<p>Täältä löydät esittelyt projekteistani:</p>
+<ul>
+<li><a href="projektit/projekti1.md">Projektin 1 esittely</a></li>
+<li><a href="projektit/projekti2.md">Projektin 2 esittely</a></li>
+<li><a href="projektit/projekti3.md">Projektin 3 esittely</a></li>
+</ul>
+<h3 id="projektit-kansio">Projektit-kansio</h3>
+<ul>
+<li>Jokainen Markdown-tiedosto esittelee yhden projektin.
+<ul>
+<li>Näin README pysyy siistinä ja lyhyenä.</li>
+</ul>
+</li>
+<li>Kuvat ja media
+<ul>
+<li>Laita kuvat omaan kuvat/-kansioon ja viittaa niihin Markdownissa:</li>
+</ul>
+</li>
+</ul>
+<p><em><a href="kuvat/projekti1.png">Projektin 1 kuva</a></em></p>
+<hr>
+<h1 id="github-pages-%E2%80%93-k%C3%A4ytt%C3%B6%C3%B6nottoopas">GitHub Pages – käyttöönottoopas</h1>
+<p>GitHub Pagesilla voit julkaista verkkosivun suoraan GitHub-repositorystäsi.</p>
+<hr>
+<h3 id="1%EF%B8%8F%E2%83%A3-luo-tai-valitse-repository">1️⃣ Luo tai valitse repository</h3>
+<ul>
+<li>Käyttäjän kotisivu: <code>kayttajanimi/kayttajanimi</code></li>
+<li>Projekti-sivut: mikä tahansa repo, esim. <code>projekti1</code></li>
+</ul>
+<hr>
+<h3 id="2%EF%B8%8F%E2%83%A3-lis%C3%A4%C3%A4-kotisivun-tiedostot">2️⃣ Lisää kotisivun tiedostot</h3>
+<ul>
+<li>Luo <code>index.html</code>-tiedosto repositoryyn tai käytä Markdown-tiedostoja (<code>.md</code>)</li>
+<li>Voit myös käyttää kansiota <code>docs/</code> ja sijoittaa tiedostot sinne</li>
+</ul>
+<p>Esimerkki:</p>
+<pre class="hljs"><code><div>repo/
+├─ index.html
+├─ tyylit.css
+├─ kuvat/
+│ └─ logo.png
+└─ docs/
+└─ lisasivu.md
+</div></code></pre>
+<hr>
+<h2 id="3%EF%B8%8F%E2%83%A3-ota-github-pages-k%C3%A4ytt%C3%B6%C3%B6n">3️⃣ Ota GitHub Pages käyttöön</h2>
+<ol>
+<li>Mene repositoryn <strong>Settings → Pages</strong></li>
+<li>Valitse <strong>Branch</strong>:
+<ul>
+<li><code>main</code> (älä valitse <code>master</code>, se on mennyttä aikaa)</li>
+<li>Root (<code>/</code>) tai <code>docs/</code>-kansio</li>
+</ul>
+</li>
+<li>Klikkaa <strong>Save</strong></li>
+<li>GitHub luo URL:n, https://kayttajanimi.github.io/</li>
+</ol>
+<hr>
+<h2 id="4%EF%B8%8F%E2%83%A3-julkaise-ja-testaa">4️⃣ Julkaise ja testaa</h2>
+<ul>
+<li>Tee commit ja push tiedostoista repositoryyn</li>
+<li>Odota hetki (yleensä 1–5 minuuttia)</li>
+<li>Avaa GitHub Pages -URL selaimessa</li>
+</ul>
+<hr>
+<h2 id="5%EF%B8%8F%E2%83%A3-vinkkej%C3%A4">5️⃣ Vinkkejä</h2>
+<ul>
+<li>README.md voi linkittää Pages-sivuun profiilissa</li>
+<li>Monikielisyys: luo kansiot tai erillisiä HTML/Markdown-tiedostoja kieliversioille</li>
+<li>Tyylit ja kuvat kannattaa sijoittaa omiin kansioihinsa (<code>css/</code>, <code>kuvat/</code>)</li>
+<li>Päivitykset näkyvät automaattisesti, kun commit ja push tehdään</li>
+</ul>
+<hr>
+<p><strong>💡 Huom:</strong></p>
+<ul>
+<li>GitHub Pages toimii julkisesti, joten yksityiset repositoriot vaativat maksullisen GitHub-tilin, jos haluat julkaista Pages-sivun. Nämä pitäisi olla kuitenkin mahdollisia opiskelijoiden pro-tunnuksilla.</li>
+</ul>
+
+</body>
+</html>

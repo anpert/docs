@@ -1,0 +1,85 @@
+
+
+LOPPU
+:: Navigoidaan projektikansioon
+cd "C:\Users\antti.perttunen\OneDrive - Ammattiopisto Luovi\Työpöytä\Tiedostot\Koodaus\Python
+
+:: Tarkista aktiivinen haara
+git branch
+
+:: Varmuuden vuoksi vedetään muutokset ennen pushia
+git pull origin main
+
+:: Lisätään muutokset
+git add .
+
+:: Tehdään commit aikaleimalla
+git commit -m "Automaattinen päivitys: %timestamp%"
+
+:: Pusketaan muutokset
+git push origin main
+
+pause
+
+
+<<<<<<< HEAD
+:: @echo off
+:: Aikaleiman luominen (muoto: VVVV-KK-PP_TT-MM-SS)
+=======
+@echo off
+>>>>>>> ed74309417fd536f1e169036f54b80bf8786cb61
+setlocal enabledelayedexpansion
+
+:: Lue polku tiedostosta ja tallenna muuttujaan
+set /p LOGIPOLKU=<C:\polku.txt
+
+:: Tarkista, että muuttuja ei ole tyhjä
+if "%LOGIPOLKU%"=="" (
+    echo Virhe: logipolku.txt on tyhjä tai sitä ei löydy!
+    exit /b 1
+)
+
+:: Tulosta luettu polku (testausta varten)
+echo Lokitiedostojen polku: %LOGIPOLKU%
+
+:: Esimerkki: käsittele lokitiedostoa
+:: dir "%LOGIPOLKU%" > "%LOGIPOLKU%\lokilista.txt"
+
+:: Aikaleiman luominen (muoto: VVVV-KK-PP_TT-MM-SS)
+for /f "tokens=1-4 delims=.: " %%a in ("%date% %time%") do (
+    set year=%%c
+    set month=%%a
+    set day=%%b
+    set hour=!time:~0,2!
+    set minute=!time:~3,2!
+    set second=!time:~6,2!
+)
+set timestamp=%year%-%month%-%day%_%hour%-%minute%-%second%
+
+:: Navigoidaan Git-repositoriolle
+<<<<<<< HEAD
+cd "C:\Users\antti.perttunen\OneDrive - Ammattiopisto Luovi\Työpöytä\Tiedostot\Koodaus\Python"
+=======
+cd "%LOGIPOLKU%"
+>>>>>>> ed74309417fd536f1e169036f54b80bf8786cb61
+
+:: Tarkistetaan aktiivinen haara
+git branch
+
+:: Vaihdetaan oikeaan haaraan (valinnainen)
+git checkout main
+
+:: Vedetään uusimmat muutokset
+git pull origin main
+
+:: Kirjoitetaan loki tiedostoon
+<<<<<<< HEAD
+echo %timestamp%: Repositorio päivitetty >> C:\Users\antti.perttunen\OneDrive - Ammattiopisto\Luovi\Työpöytä\Tiedostot\Koodaus\Python\a_resurssit\logi.txt
+=======
+echo %timestamp%: Repositorio päivitetty >> %LOGIPOLKU%\a_resurssit\logi.txt
+>>>>>>> ed74309417fd536f1e169036f54b80bf8786cb61
+
+echo Repositorio on ajan tasalla (%timestamp%).
+pause
+
+endlocal
