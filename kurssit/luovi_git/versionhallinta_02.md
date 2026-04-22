@@ -1,53 +1,48 @@
-## Git- projektin aloittaminen ##
+!KESKEN!
 
-GIT-projekti on tietokoneella oleva kansio, joka sisältää  tiedostoja. Tiedostot muodostavat yhdessä projektin. Projekti voi olla esim. tietokoneohjelma. 
 
-### Yksi mahdollinen hakemistorakenne ###
+# Git-projektin aloittaminen
 
-Tietokoneelle tulevat koodikansiot kannattaa tehdä samaan koodien juurikansioon (alla "git-data"). Tömön voi tehdä Windows- koneessa Tiedostot- kansioon. Esim. 
+Git-projekti on tietokoneella oleva kansio, joka sisältää tiedostoja. Yhdessä nämä muodostavat projektin (esim. ohjelma tai dokumentaatio).
 
-```
+---
+
+## Esimerkki hakemistorakenteesta
+
+Kaikki Git-projektit kannattaa sijoittaa saman juurikansion alle (esim. `git-data`).
+
+```text
 Tiedostot
-│ 
 └─ git-data
-   │ 
-   └─ python
-   │  └─ .git
-   │  └─ koti
-   │     │
-   │     └─ hilavitkutin
-   │     │     paaohjelma.py
-   │     └─ koulu
-   │     │     opiskelijalista.py
-   │     │     naytto_o45.py
-   │     └─ mooc    
-   │           tehtava 15.py
-   │ 
-   └─ dokumentit  
-   │     └─ .git
-   │     └─ harjoituksia
-   │     │     lujuuskerroin.txt
-   │     │     happamuuden_mittaus.md
-   │     └─ oppaita
-   │           sahkopostin_hakemins.DOCX
-   │           kulkukortti.md
-   │   
+   ├─ python
+   │  ├─ .git
+   │  ├─ koti
+   │  ├─ koulu
+   │  └─ mooc
+   ├─ dokumentit
+   │  ├─ .git
+   │  ├─ harjoituksia
+   │  └─ oppaita
    └─ git-kurssi
-
 ```
 
-Kaaviossa näkyy kansiot **python**, **dokumentit** ja **git-kurssi**. Kahden ensimmäisen sisällä on kansio nimeltä **.git**. Se on piilotettu kansio. Tämä kansio muodostuu siinä vaiheessa, kun tämä kansio muutetaan Git- projekstiksi. Tästä tarkemmin vähän myöhemmin.
+Kansiot **python** ja **dokumentit** ovat Git-projekteja (sisältävät `.git`-kansion).  
+Kansio **git-kurssi** ei vielä ole Git-projekti.
 
-Jos tietokoneen kansiorakenne on niinkuin tuossa kuvassa, olisi koneessa kaksi git-projektia: python ja dokumentit. Niiden sisällä olisi sitten muita kansiota.
+---
 
-Kolmas kansio, git-kurssi, ei olisi vielä määritelty git-projektiksi.
 
-### Piilotetut kohteet ###
-Sinun kannatta ottaa Windowsissa käyttöön piilotettujen kansioiden näyttäminen. 
-* Avaa jokin tiedostohallinnan tiedostokansio. 
-* Valitse otsikkoriviltä **näytä** ja  **näytä** ja **piilotetu kohteet**. 
+## Piilotetut tiedostot (Windows)
+
+- Avaa Resurssienhallinta  
+- Valitse **Näytä**  
+- Rastita **Piilotetut kohteet**
+
+---
+
 
 ## Komentokehotteen käyttö ##
+
 Git- komentoja on helppo käyttää **komentokehotteessa**. Se on Windows- koneissa oleva merkkipohjainenympäristö. Se muistuttaa alun perin kaikissa MsDos- koneissa ollutta käyttöjärjestelmäympäristöä.
 
 1) Avaa Windowsin resurssienhallinta. Siirry Tiedostot- välilehdelle 
@@ -55,6 +50,14 @@ Git- komentoja on helppo käyttää **komentokehotteessa**. Se on Windows- konei
 3) Kirjoita CMD ja paina enter. Komentokehoiteympäristö aukeaa. Ruudulla lukee Windows versio ja kansion polku, joka voi olla esim. **C:\Users\kaaleppi\Documents>**
 4) Luo tähän kansioon **git-data**- kansio komennolla `mkdir git-data`. Paina enter. Enter tulee jokaisen komennon jälkeen.
 5) Siirry luomaasi kansioon komennolla `cd git-data`. Voit myös kirjoittaa `cd gi` ja painaa tabulaattoria. Silloin Windows ehdottaa Unix- tyyliin mahdollisia koodin jatkoja
+
+```bat
+mkdir git-data
+cd git-data
+mkdir git-kurssi
+cd git-kurssi
+git init
+```
 6) Enterin painamisen jälkeen on uudessa kansiossasi. Kirjoita `dir`, sillä näet kansion sisällön. Se on tyhjä.
 
 ```bat
@@ -89,7 +92,21 @@ C:\Users\Omistaja\Documents\koodaus\git_kurssi>
 
 Jos nyt katsot kansion sisältöä huomaat, että sinne on syntynyt alikansio **.git**. Piste tiedoston nimen edessä tarkoittaa sitä, että sen näkyminen on estettynä tavanomaisissa hauissa. Tähän  kansioon git säilöö tietoa kyseisestä projektista. Jos poista tämän kansion, git-projkti poistuu.
 
-Tässä vaiheessa kannattaa ottaa käyttöön komento `git status`. Kokeile sitä git-kurssi -kansiossa.
+## Gitin tila
+Joskus pitää selvittää, missä kunnossa git on. Tässä vaiheessa kannattaa ottaa käyttöön komento `git status`. Kokeile sitä git-kurssi -kansiossa.
+
+
+```bat
+git status
+```
+
+Esimerkki:
+```text
+On branch main
+No commits yet
+nothing to commit
+```
+
 
 ```bat
 C:\Users\Omistaja\Documents\git-data\git-kurssi>git status
@@ -101,9 +118,26 @@ nothing to commit (create/copy files and use "git add" to track)
 ```
 Kaikki kunnossa. 
 
+---
 
-## Commit ##
-Tietoa tallennetaan Git-projektiin **committeina**. Commit on eräänlainen paketti, johon talletetaan projektin tiedostoihin tehtyjä muutoksia. Muutos voi olla esimerkiksi se, että tiedostoon lisättiin tai poistettiin tekstiä. 
+
+## Commit – peruskäsite
+
+Commit on paketti, joka sisältää tiedostoihin tehdyt muutokset.  
+Git seuraa **muutoksia**,  ei vain tiedostoja.
+
+### Gitin tilat
+```text
+working directory
+staging area
+local repository
+remote repository
+```
+
+Tarkista historia:
+```bat
+git
+
 
 **Committia** voi ajatella uutena askeleena kohti valmista projektia. Jokaisessa commitissa tehdään edelliseen committiin jotain muutoksia. Esimerkiksi, kun tietokoneohjelmaan koodataan uusi ominaisuus, se muuttunut tiedosto paketoidaan uuteen committiin.
 
@@ -127,6 +161,12 @@ Tietoa tallennetaan Git-projektiin **committeina**. Commit on eräänlainen pake
 
 ## Commitin luominen
 Commitin luominen tapahtuu niin, että siihen haluttavat muutokset (eli tiedostot)lisätään `git add`- kommennolla **staging-tilaan**. 
+
+```bat
+echo > lapio_vko2.txt
+git add lapio_vko2.txt
+git commit -m "Lisää lapio_vko2.txt"
+```
 
 Kun kaikki halutut muutokset ovat kyseisessä tilassa, ajetaan commitin luova komento (`commit`), joka **yhdistää** kaikki stagingissa olevat muutokset yhdeksi commitiksi.
 
