@@ -1,0 +1,39 @@
+azure-yhteyden avaaminen lounaslaskurille:
+
+MYSQL WORKBENCH
+- sertifikaatti kuntoon
+- työasema: valitse Etätyöpäytäyhteys
+- etätyöpäytäyhteys: rds-srv-oppi01.oppi.silmu.fi --> yhdistä
+- kirjaudu koulun tunnar+salasana
+- avaa mysql workbench (windows valikko)
+
+-ellei opiskelijaruokailu ole auki:
+  - database -- connect to database
+  - store connection: opiskelijaruokailu\$opiskelijaruokailu
+  - hostname: datarit-mysql.mysql.database.azure.com
+  - username: dadm
+  - OK
+  - password: ks datarit mysql 2/2 - meilistä
+  
+FTP-julkaisu 
+
+
+Näyttönimi: Antti Perttunen
+Salasana: ks. Datarit tunnus 2/2
+Käyttäjänimi: antti.perttunen@datarit.onmicrosoft.com
+
+
+ 
+profileName="opiskelijaruokailu - FTP"
+publishMethod="FTP"
+publishUrl="ftps://waws-prod-sec-029.ftp.azurewebsites.windows.net/site/wwwroot"
+port="990"
+ftpPassiveMode="True"
+userName="opiskelijaruokailu\$opiskelijaruokailu"
+userPWD="toSL1K8QppFuwnL4qhFn7sqBmwkzWbTDYYdStpS5s6zlw0Dzvu2MixlsqE4n"
+destinationAppUrl="https://opiskelijaruokailu.azurewebsites.net"
+
+Ttee työkoneella uusi profiili Edgeen tai aja In-Private tilassa, kun yrittää muuten käyttää sinun Luovi -tunnusta.
+
+
+
